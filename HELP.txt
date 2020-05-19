@@ -1,21 +1,31 @@
-mkdir 	#makes a new directory
-rmdir		#removes a directory
+cat			#reads the contents of a file
+	cat [FILENAME]
+
 cd			#changes the current directory
-ls			#lists all files in the current directory
+	cd [DIRECTORY]
 
+clear		#clears the console
 
-rm			#removes a file
-	rm [FILENAME]
-
-echo			#writes to a file
+echo		#writes to a file
 	echo TEXT <option> [FILENAME]
 		option:
 		>> #to append TEXT to file
 		> #to overwrite file
 
-cat			#reads the contents of a file
-	cat [FILENAME]
-
-clear		#clears the console
-
 exit 		#exits the program
+
+help		#displays documentation
+
+ls			#lists all files in the current directory
+
+mkdir 	#makes a new directory
+	mkdir [DIRECTORY]
+
+pwd			#displays current directory
+
+rm			#removes a file
+	rm [FILENAME]
+
+rmdir		#removes a directory
+	rmdir [DIRECTORY]
+
