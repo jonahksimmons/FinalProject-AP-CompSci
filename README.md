@@ -9,6 +9,10 @@ It can make files, write to files, read files,
 remove files, create directories (folders), remove
 directories.
 
+To use:
+
+Create a new repl and choose import from GitHub
+Paste: https://github.com/jonahksimmons/FinalProject
 
 This was a lot of fun learning all the needed syntax
 and fun making. I hope you enjoy.
