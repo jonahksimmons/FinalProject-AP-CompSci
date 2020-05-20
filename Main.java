@@ -151,7 +151,21 @@ public class Main {
       			}
       			cat.close();
     			} catch (FileNotFoundException e) {
-      			System.out.println("An error occurred.");
+      			System.out.println("An error occurred");
+      			e.printStackTrace();
+    			}
+				break;
+				case "about":
+					try {
+      			File myOb = new File("ABOUT.txt");
+      			Scanner cat = new Scanner(myOb);
+      			while (cat.hasNextLine()) {
+        			String data = cat.nextLine();
+        			System.out.println(data);
+      			}
+      			cat.close();
+    			} catch (FileNotFoundException e) {
+      			System.out.println("An error occurred");
       			e.printStackTrace();
     			}
 				break;

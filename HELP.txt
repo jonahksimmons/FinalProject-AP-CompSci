@@ -1,7 +1,12 @@
 FinalProject v05.20.20(1)
 This program is optimised for the repl.it environment
 Based off the default Pop!_OS bash coloring scheme*
-*this prpject is not affiliated with System76 in any way. I just like Pop!_OS :)
+*this project is not affiliated with System76 in any way. I just like Pop!_OS :)
+
+Use 'about' find out more about this project
+Use 'help' to display this message again
+
+Following is a list of all the valid commands:
 
 cat			#reads the contents of a file
 	cat [FILENAME]
