@@ -2,6 +2,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.io.File;
 import java.io.FileWriter;
+import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
@@ -19,7 +20,6 @@ public class Main {
 		
 		boolean hasRequestedExit = false;
 		System.out.print("\u001B[93m");//orange
-		System.out.println("v20.05.19");
 		System.out.println("run 'help' for list of commands\n");
 		System.out.print("\u001B[0m");//reset color
 		do{
@@ -39,10 +39,9 @@ public class Main {
 			switch(command){
 				case "echo":
 				fileName = argument;
-				while(fileName.indexOf(">") > -1){
-					fileName = argument.substring(argument.indexOf(">")+2);
-				}
-				fileName = fileName.substring(1);
+				int ii = 0;
+				fileName = argument.substring(argument.indexOf(">")+1);
+				fileName = fileName.substring(fileName.indexOf(" ")+1);
 				fileName = currentDir.substring(1)+"/"+fileName;
 				String flag = argument.substring(argument.indexOf(">"));
 				flag = flag.substring(0, flag.indexOf(" "));
@@ -51,7 +50,7 @@ public class Main {
 				append = flag.equals(">>");
 				try {
       		FileWriter myWriter = new FileWriter(fileName, append);
-      		myWriter.write(argument);
+					myWriter.write(argument);
       		myWriter.close();
     			System.out.println("Successfully wrote to the file.");
   			} catch (IOException e) {
@@ -69,8 +68,7 @@ public class Main {
       			}
       			cat.close();
     			} catch (FileNotFoundException e) {
-      			System.out.println("An error occurred.");
-      			e.printStackTrace();
+      			System.out.println("File not found: "+fileName);
     			}
 				break;
 				case "rm":
@@ -94,10 +92,10 @@ public class Main {
 						} else{
 							System.out.print("\u001B[36m");//aqua
 						}
-    	      System.out.println(pathname);
+    	      System.out.print(pathname+"      ");
 						System.out.print("\u001B[0m");//reset color
-
       	  }
+					System.out.print("\n");
 				break;
 				case "cd":
 					if(argument.equals("..")){
@@ -107,29 +105,39 @@ public class Main {
 						}
 						currentDir = currentDir.substring(0,i);
 					} else{
-						currentDir += "/"+argument;
+						boolean moved = false;
+        		File fil = new File("/home/runner/FinalProject/"+currentDir);
+	        	pathnames = fil.list();
+						for(String paths : pathnames){
+							if(paths.equals(argument)){
+								currentDir += "/"+argument;
+								moved = true;
+							}
+						}
+						if(!moved){
+							System.out.println("Directory does not exsist");
+						}
 					}
 				break;
 				case "mkdir":
 					File file = new File(fileName);
-      		//Creating the directory
-      		boolean bool = file.mkdir();
-      		if(bool){
-         		System.out.println("Directory created successfully");
+      		//returns true if it is created
+      		if(file.mkdir()){
+         		System.out.println("Directory created: "+fileName);
       		}else{
-         		System.out.println("Sorry couldn’t create specified directory");
+         		System.out.println("Couldn’t create directory: "+fileName);
       		}
 				break;
 				case "rmdir":
 					File rmDir = new File(fileName);
     		if(!rmDir.exists()){
-           	System.out.println("Directory does not exist.");
+           	System.out.println("Directory does not exist: "+fileName);
            	System.exit(0);
         	}else{
            	if(rmDir.delete()){
-							System.out.println("removed");
+							System.out.println("Removed directory: "+fileName);
 						} else{
-							System.out.println("failed");
+							System.out.println("Failed to remove directory: "+fileName);
 						}
         	}
 				break;

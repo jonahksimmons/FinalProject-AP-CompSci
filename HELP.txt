@@ -1,3 +1,8 @@
+FinalProject v05.20.20(1)
+This program is optimised for the repl.it environment
+Based off the default Pop!_OS bash coloring scheme*
+*this prpject is not affiliated with System76 in any way. I just like Pop!_OS :)
+
 cat			#reads the contents of a file
 	cat [FILENAME]
 
@@ -7,10 +12,10 @@ cd			#changes the current directory
 clear		#clears the console
 
 echo		#writes to a file
-	echo TEXT <option> [FILENAME]
+	echo [text] [option] [FILENAME]
 		option:
-		>> #to append TEXT to file
-		> #to overwrite file
+		>> #to append [text] to file
+		>  #to overwrite file
 
 exit 		#exits the program
 
@@ -28,4 +33,3 @@ rm			#removes a file
 
 rmdir		#removes a directory
 	rmdir [DIRECTORY]
-
