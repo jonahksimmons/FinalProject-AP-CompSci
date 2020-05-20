@@ -18,10 +18,15 @@ public class Main {
 		String currentDir = "/Home";
 		
 		boolean hasRequestedExit = false;
+		System.out.print("\u001B[93m");//orange
 		System.out.println("v20.05.19");
-		System.out.println("'help' for list of commands\n");
+		System.out.println("run 'help' for list of commands\n");
+		System.out.print("\u001B[0m");//reset color
 		do{
-			System.out.print(user+"@"+device+":"+currentDir+"$ ");
+			System.out.print("\u001B[92m"+user+"@"+device);//green
+			System.out.print("\u001B[0m"+":");//white
+			System.out.print("\u001B[94m"+currentDir);//blue
+			System.out.print("\u001B[0m"+"$ ");//reset color
 
 			fullCommand = console.nextLine();
 			if(fullCommand.indexOf(" ") > -1){
@@ -77,19 +82,33 @@ public class Main {
     		} 
 				break;
 				case "pwd":
-					String cwd = System.getProperty("user.dir");
-					System.out.println(cwd+currentDir);
+					System.out.println(currentDir);
 				break;
 				case "ls":
 					String[] pathnames;
         	File f = new File("/home/runner/FinalProject/"+currentDir);
 	        pathnames = f.list();
   	      for (String pathname : pathnames) {
-    	        System.out.println(pathname);
+						if(pathname.indexOf(".") == -1){
+							System.out.print("\u001B[94m");//blue
+						} else{
+							System.out.print("\u001B[36m");//aqua
+						}
+    	      System.out.println(pathname);
+						System.out.print("\u001B[0m");//reset color
+
       	  }
 				break;
 				case "cd":
-					currentDir += "/"+argument;
+					if(argument.equals("..")){
+						int i = currentDir.length()-1;
+						while(currentDir.charAt(i) != '/'){
+							i--;
+						}
+						currentDir = currentDir.substring(0,i);
+					} else{
+						currentDir += "/"+argument;
+					}
 				break;
 				case "mkdir":
 					File file = new File(fileName);
