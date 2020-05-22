@@ -11,7 +11,7 @@ directories.
 
 To use:
 
-Create a new repl and choose import from GitHub
+Create a new repl on repl.it and choose import from GitHub
 Paste: https://github.com/jonahksimmons/FinalProject
 
 This was a lot of fun learning all the needed syntax
