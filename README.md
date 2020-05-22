@@ -1,7 +1,7 @@
 # FinalProject
 Final project for AP Computer Science A class
 
-This is essiantially a Linux terminal that can just
+This is essentially a Linux terminal that can just
 do file management for all you Windows nerds.
 
 This is basically a text version of FileExplorer.
