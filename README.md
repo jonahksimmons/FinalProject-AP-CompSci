@@ -4,7 +4,7 @@ Final project for AP Computer Science A class
 This is essentially a Linux terminal that can just
 do file management for all you Windows nerds.
 
-This is basically a text version of FileExplorer.
+This is a simple text version of FileExplorer with not many features.
 It can make files, write to files, read files, 
 remove files, create directories (folders), remove
 directories.
